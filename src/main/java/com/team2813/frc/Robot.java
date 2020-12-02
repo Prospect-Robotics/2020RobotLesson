@@ -18,8 +18,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * creating this project, you must also update the build.gradle file in the
  * project.
  */
-public class Robot extends TimedRobot
-{
+public class Robot extends TimedRobot {
     private static final String DEFAULT_AUTO = "Default";
     private static final String CUSTOM_AUTO = "My Auto";
     private String autoSelected;
@@ -30,8 +29,7 @@ public class Robot extends TimedRobot
      * used for any initialization code.
      */
     @Override
-    public void robotInit()
-    {
+    public void robotInit() {
         chooser.setDefaultOption("Default Auto", DEFAULT_AUTO);
         chooser.addOption("My Auto", CUSTOM_AUTO);
         SmartDashboard.putData("Auto choices", chooser);
@@ -46,8 +44,7 @@ public class Robot extends TimedRobot
      * LiveWindow and SmartDashboard integrated updating.
      */
     @Override
-    public void robotPeriodic()
-    {
+    public void robotPeriodic() {
     }
 
     /**
@@ -62,8 +59,7 @@ public class Robot extends TimedRobot
      * SendableChooser make sure to add them to the chooser code above as well.
      */
     @Override
-    public void autonomousInit()
-    {
+    public void autonomousInit() {
         autoSelected = chooser.getSelected();
         // autoSelected = SmartDashboard.getString("Auto Selector",
         // defaultAuto);
@@ -74,10 +70,8 @@ public class Robot extends TimedRobot
      * This method is called periodically during autonomous.
      */
     @Override
-    public void autonomousPeriodic()
-    {
-        switch (autoSelected)
-        {
+    public void autonomousPeriodic() {
+        switch (autoSelected) {
             case CUSTOM_AUTO:
                 // Put custom auto code here
                 break;
@@ -92,15 +86,13 @@ public class Robot extends TimedRobot
      * This method is called periodically during operator control.
      */
     @Override
-    public void teleopPeriodic()
-    {
+    public void teleopPeriodic() {
     }
 
     /**
      * This method is called periodically during test mode.
      */
     @Override
-    public void testPeriodic()
-    {
+    public void testPeriodic() {
     }
 }
