@@ -7,6 +7,7 @@
 
 package com.team2813.frc;
 
+import com.team2813.frc.subsystems.Drive;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -19,10 +20,15 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * project.
  */
 public class Robot extends TimedRobot {
+    private static final String ROBOT_NAME = "Sam's Tutorial Bot";
+
     private static final String DEFAULT_AUTO = "Default";
     private static final String CUSTOM_AUTO = "My Auto";
     private String autoSelected;
     private final SendableChooser<String> chooser = new SendableChooser<>();
+
+    // Subsystems
+    Drive drive = new Drive();
 
     /**
      * This method is run when the robot is first started up and should be
@@ -33,6 +39,8 @@ public class Robot extends TimedRobot {
         chooser.setDefaultOption("Default Auto", DEFAULT_AUTO);
         chooser.addOption("My Auto", CUSTOM_AUTO);
         SmartDashboard.putData("Auto choices", chooser);
+
+        System.out.println(ROBOT_NAME + " is initializing!");
     }
 
     /**
@@ -82,11 +90,17 @@ public class Robot extends TimedRobot {
         }
     }
 
+    @Override
+    public void teleopInit() {
+        System.out.println("Teleop Starting!");
+    }
+
     /**
      * This method is called periodically during operator control.
      */
     @Override
     public void teleopPeriodic() {
+        drive.onEnabledLoop();
     }
 
     /**
