@@ -33,6 +33,8 @@ public class Robot extends TimedRobot {
         chooser.setDefaultOption("Default Auto", DEFAULT_AUTO);
         chooser.addOption("My Auto", CUSTOM_AUTO);
         SmartDashboard.putData("Auto choices", chooser);
+
+        System.out.println("Hello World");
     }
 
     /**
@@ -85,8 +87,11 @@ public class Robot extends TimedRobot {
     /**
      * This method is called periodically during operator control.
      */
+    int elapsedCycles = 0;
     @Override
     public void teleopPeriodic() {
+        System.out.println("Time spent in teleop: " + (elapsedCycles * 0.02));
+        elapsedCycles++;
     }
 
     /**
