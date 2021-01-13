@@ -20,14 +20,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * project.
  */
 public class Robot extends TimedRobot {
-    private static final String ROBOT_NAME = "Sam's Tutorial Bot";
-
     private static final String DEFAULT_AUTO = "Default";
     private static final String CUSTOM_AUTO = "My Auto";
     private String autoSelected;
     private final SendableChooser<String> chooser = new SendableChooser<>();
 
-    // Subsystems
     Drive drive = new Drive();
 
     /**
@@ -40,7 +37,7 @@ public class Robot extends TimedRobot {
         chooser.addOption("My Auto", CUSTOM_AUTO);
         SmartDashboard.putData("Auto choices", chooser);
 
-        System.out.println(ROBOT_NAME + " is initializing!");
+        System.out.println("2813 is cool.");
     }
 
     /**
@@ -89,19 +86,19 @@ public class Robot extends TimedRobot {
                 // Put default auto code here
                 break;
         }
-    }
-
-    @Override
-    public void teleopInit() {
-        System.out.println("Teleop Starting!");
+        drive.writePeriodicOutputs();
     }
 
     /**
      * This method is called periodically during operator control.
      */
+    int elapsedCycles = 0;
     @Override
     public void teleopPeriodic() {
-        drive.onEnabledLoop();
+        System.out.println("Time spent in teleop: " + (elapsedCycles * 0.02));
+        elapsedCycles++;
+
+        drive.writePeriodicOutputs();
     }
 
     /**
@@ -110,4 +107,16 @@ public class Robot extends TimedRobot {
     @Override
     public void testPeriodic() {
     }
+
+    @Override
+    public void disabledInit() {
+        drive.onDisabled();
+    }
 }
+
+// Robot:
+// Drivetrain
+//     Joysticks
+//     Motors
+// Lifter
+//     Pneumatics

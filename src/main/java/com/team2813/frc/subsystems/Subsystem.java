@@ -1,7 +1,19 @@
 package com.team2813.frc.subsystems;
 
-public abstract class Subsystem extends edu.wpi.first.wpilibj.command.Subsystem {
-    public abstract void readPeriodicInputs();
+abstract public class Subsystem {
+    // read joysticks
+    // robotPeriodic
+    abstract public void readPeriodicInputs();
 
-    public abstract void onEnabledLoop();
+    // output motors
+    // output pneumatics
+    // autonomousPeriodic teleopPeriodic
+    abstract public void writePeriodicOutputs();
+
+    public void onDisabled() {
+
+    }
+
+    public void onEnabled() {
+    }
 }
