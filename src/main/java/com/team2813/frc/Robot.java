@@ -107,10 +107,16 @@ public class Robot extends TimedRobot {
     @Override
     public void testPeriodic() {
     }
+
+    @Override
+    public void disabledInit() {
+        drive.onDisabled();
+    }
 }
 
 // Robot:
 // Drivetrain
+//     Joysticks
 //     Motors
 // Lifter
 //     Pneumatics

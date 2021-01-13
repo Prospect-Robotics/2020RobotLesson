@@ -28,7 +28,7 @@ public class Drive extends Subsystem {
 
     @Override
     public void readPeriodicInputs() {
-        steerDemand = joystick.getRawAxis(0);
+        steerDemand = joystick.getRawAxis(0); // -1 to 1
         throttleDemand = joystick.getRawAxis(4) * -1; // invert because forward is -1 and backward is 1
 
         slowMode = joystick.getRawButton(1);
