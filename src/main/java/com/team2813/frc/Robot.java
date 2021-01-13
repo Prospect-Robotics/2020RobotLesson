@@ -7,6 +7,7 @@
 
 package com.team2813.frc;
 
+import com.team2813.frc.subsystems.Drive;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -23,6 +24,8 @@ public class Robot extends TimedRobot {
     private static final String CUSTOM_AUTO = "My Auto";
     private String autoSelected;
     private final SendableChooser<String> chooser = new SendableChooser<>();
+
+    Drive drive = new Drive();
 
     /**
      * This method is run when the robot is first started up and should be
@@ -47,6 +50,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void robotPeriodic() {
+        drive.readPeriodicInputs();
     }
 
     /**
@@ -82,6 +86,7 @@ public class Robot extends TimedRobot {
                 // Put default auto code here
                 break;
         }
+        drive.writePeriodicOutputs();
     }
 
     /**
@@ -92,6 +97,8 @@ public class Robot extends TimedRobot {
     public void teleopPeriodic() {
         System.out.println("Time spent in teleop: " + (elapsedCycles * 0.02));
         elapsedCycles++;
+
+        drive.writePeriodicOutputs();
     }
 
     /**
@@ -101,3 +108,9 @@ public class Robot extends TimedRobot {
     public void testPeriodic() {
     }
 }
+
+// Robot:
+// Drivetrain
+//     Motors
+// Lifter
+//     Pneumatics
