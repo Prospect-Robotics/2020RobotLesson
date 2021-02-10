@@ -8,6 +8,7 @@
 package com.team2813.frc;
 
 import com.team2813.frc.subsystems.Drive;
+import com.team2813.frc.subsystems.Lifter;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -26,6 +27,7 @@ public class Robot extends TimedRobot {
     private final SendableChooser<String> chooser = new SendableChooser<>();
 
     Drive drive = new Drive();
+    Lifter lifter = new Lifter();
 
     /**
      * This method is run when the robot is first started up and should be
@@ -51,6 +53,7 @@ public class Robot extends TimedRobot {
     @Override
     public void robotPeriodic() {
         drive.readPeriodicInputs();
+        lifter.readPeriodicInputs();
     }
 
     /**
@@ -87,18 +90,16 @@ public class Robot extends TimedRobot {
                 break;
         }
         drive.writePeriodicOutputs();
+        lifter.writePeriodicOutputs();
     }
 
     /**
      * This method is called periodically during operator control.
      */
-    int elapsedCycles = 0;
     @Override
     public void teleopPeriodic() {
-        System.out.println("Time spent in teleop: " + (elapsedCycles * 0.02));
-        elapsedCycles++;
-
         drive.writePeriodicOutputs();
+        lifter.writePeriodicOutputs();
     }
 
     /**
@@ -111,6 +112,12 @@ public class Robot extends TimedRobot {
     @Override
     public void disabledInit() {
         drive.onDisabled();
+        lifter.onDisabled();
+    }
+
+    @Override
+    public void simulationPeriodic() {
+        lifter.simulationPeriodic();
     }
 }
 

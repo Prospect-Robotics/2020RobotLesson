@@ -10,6 +10,10 @@ abstract public class Subsystem {
     // autonomousPeriodic teleopPeriodic
     abstract public void writePeriodicOutputs();
 
+    public void simulationPeriodic() {
+
+    }
+
     public void onDisabled() {
 
     }
