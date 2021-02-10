@@ -1,5 +1,9 @@
 package com.team2813.frc.subsystems;
 
+/**PID Control Notes
+ * Proportional Integral Derivative - PID
+ * Accurate Common Way to control mtoors
+ */
 abstract public class Subsystem {
     // read joysticks
     // robotPeriodic
