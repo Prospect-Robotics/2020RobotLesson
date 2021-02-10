@@ -111,13 +111,6 @@ public class Robot extends TimedRobot {
 
     @Override
     public void disabledInit() {
-        drive.onDisabled();
-        lifter.onDisabled();
-    }
-
-    @Override
-    public void simulationPeriodic() {
-        lifter.simulationPeriodic();
     }
 }
 
