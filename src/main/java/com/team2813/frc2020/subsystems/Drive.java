@@ -36,7 +36,7 @@ public class Drive extends Subsystem {
     @Override
     protected void readPeriodicInputs() {
         driveLeft.set(demand.getLeft());
-        driveLeft.set(demand.getRight());
+        driveRight.set(demand.getRight());
     }
 
     @Override
