@@ -1,15 +1,9 @@
-package com.team2813.frc.auto;
+package com.team2813.frc2020.auto;
 
 import com.team2813.frc2020.Robot;
-import com.team2813.frc2020.subsystems.Subsystems;
 import com.team2813.frc2020.util.ShuffleboardData;
-import com.team2813.lib.actions.Action;
-import com.team2813.lib.actions.SeriesAction;
-import com.team2813.lib.auto.GeneratedTrajectory;
 import com.team2813.lib.auto.RamseteAuto;
 import com.team2813.lib.auto.RamseteTrajectory;
-
-import java.util.List;
 
 /**
  * method to run autonomous in {@link Robot} autonomousPeriodic

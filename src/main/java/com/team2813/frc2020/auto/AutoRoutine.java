@@ -1,4 +1,4 @@
-package com.team2813.frc.auto;
+package com.team2813.frc2020.auto;
 
 import com.team2813.lib.actions.*;
 import com.team2813.lib.auto.AutoTrajectory;

@@ -1,11 +1,9 @@
-package com.team2813.frc.subsystems;
+package com.team2813.frc2020.subsystems;
 
 import com.team2813.frc2020.Robot.RobotMode;
 import com.team2813.frc2020.loops.Loop;
 import com.team2813.frc2020.loops.Looper;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -29,7 +27,7 @@ public class Subsystems {
 			allSubsystems.get(currentSubsystem).outputTelemetry();
 			currentSubsystem++;
 		}
-	};
+	}
 
 	public static void initializeSubsystems() {
 		DRIVE = new Drive();
